@@ -2,63 +2,66 @@ $(document).ready(function() {
 	getLocation(); 
 });
 
+$('#browser_geo').one('click', function(){
+   	getLocation();
+});
+
 function getWeather(link) {
 	$.getJSON(link, function(data){
 
 		//set weather id & icon 
-		var id = data.weather[0].id;
-		var icon = data.weather[0].icon;
+		let id = data.weather[0].id;
+		let icon = data.weather[0].icon;
 
 		$('#weather-id').text(id);
 		$('#weather-icon').text(icon);
 
-		var doge_img = "url(./img/doge/" + icon + ".png)";
+		let doge_img = 'url(./img/doge/' + icon + '.png)';
 		$('.doge-image').css('background-image', doge_img);
 
-		var sky_img = "url(./img/sky-img/" + icon + ".png)";
+		let sky_img = 'url(./img/sky-img/' + icon + '.png)';
 		$('.bg').css('background-image', sky_img);
 
-
 		//get weather description
-		var tempCelcius = data.main.temp - 273.15;
-		var tempFahrenheit = tempCelcius * 9 / 5 + 32;
-		var description = data.weather[0].description;
+		let tempCelcius = data.main.temp - 273.15;
+		let tempFahrenheit = tempCelcius * 9 / 5 + 32;
+		let description = data.weather[0].description;
 
 		$('#weather-desc').text("wow " + description);
 		$('#location').text(data.name);
 
 		$('#degreesCelsius .number').text(Math.round(tempCelcius));
-		$('#degreesCelsius .cel').text("°C ");
-		$('#degreesFahrenheit').text(Math.round(tempFahrenheit) + "°F");
+		$('#degreesCelsius .cel').text('°C ');
+		$('#degreesFahrenheit').text(Math.round(tempFahrenheit) + '°F');
 
-		$(".suchlikes").show();
-		$(".ourinfo").show();
+		$('.suchlikes').show();
+		$('.ourinfo').show();
 
 		// much initialise such doge
 		$($.doge);
 	});
 }
-
-$("#browser_geo" ).one('click', function(){
-   	getLocation();
-});
 	   
 function getLocation() {
-    if (navigator.geolocation) {
-	    navigator.geolocation.getCurrentPosition(showPosition, function(error) {
-	    	$('#browser_geo').text('use my location');	
-      		getWeather("./weather.php");
-	    });
-	}
-	else {
-		$("#browser_geo").text("Geolocation is not supported by this browser.");
-	}
+    if (!navigator.geolocation) 
+		return $('#browser_geo').text('Geolocation is not supported by this browser.');
+
+	navigator.geolocation.getCurrentPosition(showPosition, function(error) {
+		$('#browser_geo').text('use my location');	
+		getWeather("./weather.php");
+	});
 }
 
 function showPosition(position) {
-	var url = 'http://api.openweathermap.org/data/2.5/weather';
-    url += '?lat=' + position.coords.latitude + '&lon=' + position.coords.longitude + '&callback=?';
+	let url = 'http://api.openweathermap.org/data/2.5/weather';
+    url += '?lat=' + position.coords.latitude + '&lon=' + position.coords.longitude + '&&callback=?';
 
     getWeather(url);
-    $("#browser_geo").text("wow, located!").css("cursor", "auto").css("color", "#FF5CFF");
+
+    $('#browser_geo')
+		.text('wow, located!')
+		.css({
+			cursor: 'auto',
+			color: '#FF5CFF'
+		});
 }
