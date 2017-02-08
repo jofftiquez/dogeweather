@@ -11,131 +11,7 @@
         <meta name="author" content="Katia + Bennett" />
         <link rel="shortcut icon" href="./img/doge/favicon.png" type="image/png">
         <meta name="viewport" content="width=700">
-        <style> 
-            body {
-                min-height:640px;
-				font-family:Comic Sans MS, Comic Sans, Chalkboard, Helvetica, Arial, sans-serif;
-            }
-            .bg {
-                background-color: #FFFFCC;
-                background-repeat:  no-repeat;
-                background-position: center center;
-                background-attachment: fixed; 
-                -webkit-background-size: cover;
-                -moz-background-size: cover;
-                -o-background-size: cover;
-                background-size: cover;
-            }
-            .container {
-                width:550px;
-                height:640px;
-                position:absolute;
-                top:50%;
-                left: 50%;
-                margin-left:-275px;
-                margin-top: -320px;
-            }
-            .doge-image {
-                width:550px;
-                height:550px;
-                background: url(img/doge/doge-regular.png);
-                background-repeat: no-repeat;
-                background-attachment: center center;
-                background-size: 550px 550px;
-            }
-            #all-weather {
-                height:90px;
-                position:relative;
-                top:-100px;
-                text-align: center;
-            }
-            #weather-desc {
-                font-size: 30px;
-                color:#33D6FF;
-				text-transform: lowercase;
-            }
-            #identifiers {
-                visibility:hidden;
-            }
-            #location {
-                color: #ff3399;
-            }
-            .t {
-                color: #30FFD6;
-                display: inline-block;
-            }
-            .suchlikes {
-                display:block;
-                padding: 10px;
-            }
-            .much-like {
-                display:inline-block;
-                padding:5px;
-            }
-            .ourinfo {
-                display:block;
-                position:absolute;
-                bottom:0;
-                right:0;
-                padding:0 10px 10px 0;
-                color: #ffffe6;
-                font-weight: 100px;
-                font-size: 10px;
-                letter-spacing: 1px;
-				text-align:right;
-            }
-            .ourinfo p {
-                margin: 0;
-                padding:0;
-            }
-            .ourinfo a {
-                text-decoration: none;
-                color:#FFFF99;
-                font-weight: bold;
-            }
-            .ourinfo a:hover {
-                color: #FF3399;
-            }
-
-			#dogecoinbox{
-			cursor:pointer;
-			}	
-
-			#coinclick{
-			color:#FFFF99;
-			cursor:pointer;
-            font-weight: bold;
-			}
-
-			#coinclick:hover{
-			color:#FF3399;
-			}
-
-			#coinaddress{
-			display:none;
-			clear:both;
-			}
-            #browser_geo {
-                cursor:pointer;
-                width:auto;
-                position:absolute;
-                font-size:15px;
-                top:0px;
-                padding:14px;
-                padding-left:42px;
-                right:0px;
-                text-align:right;
-                color: #FFFF75;
-                background-color:rgba(0,0,0,0.2);
-                background-image:url('/img/doge-geo.png');
-                background-position:0px 5px;
-                background-repeat: no-repeat;
-                background-size:38px 38px;
-            }
-            #browser_geo:hover {
-                color:#FF5CFF;
-            }
-        </style>
+        <link rel="stylesheet" href="./style/main.css">
     </head>
     <body class="bg">
         <div id="browser_geo">
@@ -154,8 +30,12 @@
             <div id="weather-id"></div>
             <div id="weather-icon"> </div>
         </div>
-        <div class="ourinfo"> wow <a href="https://github.com/katiaeirin/dogeweather" target="_blank">github</a> such <a href="http://drakeweather.com/" target="_blank">inspired</a>
-            <p> hello <a href="https://twitter.com/KatiaEirin" target="_blank">Katia</a> &amp; <a href="https://twitter.com/ennsu" target="_blank">Bennett</a></p><p id="dogecoinbox"><a href="https://secure.peta.org/site/Donation" target="_blank">donate</a> to peta wow!</p>
+        <div class="ourinfo"> 
+            <marquee behavior="" direction="" scrollamount="10">
+                wow <a href="https://github.com/katiaeirin/dogeweather" target="_blank">github</a> such <a href="http://drakeweather.com/" target="_blank">inspired</a> <img src="./img/doge/favicon.png" alt="">
+                hello <a href="https://twitter.com/KatiaEirin" target="_blank">Katia</a> &amp; <a href="https://twitter.com/ennsu" target="_blank">Bennett</a> <img src="./img/doge/favicon.png" alt="">
+                <a href="https://secure.peta.org/site/Donation" target="_blank">donate</a> to peta wow!
+            </marquee>
         </div>
         
         <script src="//ajax.googleapis.com/ajax/libs/jquery/1.9.0/jquery.min.js"></script>
